@@ -5,6 +5,7 @@ tags and published to `https://greensec.github.io/build-nginx/repo`.
 
 | suite | version | built | notes |
 |---|---|---|---|
+| jessie | `1.30.7-1~jessie` | 2026-11-21 | debhelper 9 compat; PCRE1; OpenSSL 1.0.1; no systemd unit (init script only); amd64+i386 |
 | stretch | `1.30.7-1~stretch` | 2026-11-21 | debhelper via stretch-backports; OpenSSL 1.1.0 (no TLS 1.3/QUIC) |
 | buster | `1.30.7-1~buster` | 2026-11-21 | no QUIC (OpenSSL 1.1.1) |
 | bullseye | `1.30.7-1~bullseye` | 2026-11-21 | no QUIC (OpenSSL 1.1.1) |
