@@ -54,12 +54,11 @@ jobs:
       max-parallel: 1
       matrix:
         dist: ${{ fromJSON(needs.dists.outputs.list) }}
-    # serialize builds - the runner fleet is one box and the publish step
-    # pushes to the same gh-pages branch
+    # serialize builds - the publish step pushes to the same gh-pages branch
     concurrency:
       group: "nginx-build"
       cancel-in-progress: false
-    runs-on: [self-hosted, linux, x64]
+    runs-on: ubuntu-latest
     container:
       image: "debian:${{ matrix.dist }}"
       options: --shm-size=4g
