@@ -1,0 +1,16 @@
+# Local build environment for build-nginx (CI uses debian:<dist> directly).
+# debian/eol:jessie still exists on Docker Hub; plain debian:jessie does not.
+FROM debian/eol:jessie
+
+RUN cat >/etc/apt/sources.list <<EOF
+deb http://archive.debian.org/debian jessie main
+deb http://archive.debian.org/debian-security jessie/updates main
+EOF
+RUN apt-get update -qq && apt-get install -y --no-install-recommends \
+    build-essential devscripts quilt dpkg-dev debhelper lsb-release \
+    libssl-dev libpcre3-dev zlib1g-dev \
+    git ca-certificates curl make xsltproc lintian libxml2-utils fakeroot \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /nginx-build
+ENTRYPOINT ["./scripts/build.sh"]

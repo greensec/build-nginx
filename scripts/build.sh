@@ -5,7 +5,7 @@
 # the official nginx.org builds before they dropped the suite.
 #
 # Required env:
-#   DIST        target suite: stretch | buster | bullseye
+#   DIST        target suite: jessie | stretch | buster | bullseye
 # Optional env:
 #   NGINX_TAG   pkg-oss git tag (default: 1.30.7-1 - NGINX2Root fixes)
 #   PKG_OSS     pkg-oss clone URL
@@ -26,6 +26,12 @@ export DEBIAN_FRONTEND=noninteractive
 # stretch-backports for debhelper >= 11 (pkg-oss hardcodes compat 11;
 # stretch only ships debhelper 10.2.5).
 case "$DIST" in
+    jessie)
+        cat >/etc/apt/sources.list <<EOF
+deb http://archive.debian.org/debian jessie main
+deb http://archive.debian.org/debian-security jessie/updates main
+EOF
+        ;;
     stretch)
         sed -i -e '/stretch-updates/d' \
             -e 's|deb\.debian\.org/debian-security|archive.debian.org/debian-security|g' \
@@ -46,9 +52,12 @@ case "$DIST" in
 esac
 
 apt-get update -qq
+# jessie has no libpcre2-dev - nginx configure falls back to PCRE1
+pcredev=libpcre2-dev
+[ "$DIST" = jessie ] && pcredev=libpcre3-dev
 apt-get install -y --no-install-recommends \
     build-essential devscripts quilt dpkg-dev debhelper lsb-release \
-    libssl-dev libpcre2-dev zlib1g-dev \
+    libssl-dev "$pcredev" zlib1g-dev \
     git ca-certificates curl make xsltproc lintian libxml2-utils fakeroot
 
 if [ "$DIST" = stretch ]; then
@@ -62,11 +71,27 @@ trap 'rm -rf "$WORK"' EXIT
 git clone -q --depth 1 -b "$NGINX_TAG" "$PKG_OSS" "$WORK/pkg-oss"
 cd "$WORK/pkg-oss/debian"
 
-# pkg-oss hardcodes debian/compat 11 - fall back to the distro debhelper
-# level when the backports install did not provide >= 11
+# pkg-oss hardcodes debian/compat 11 and Build-Depends debhelper (>= 11) -
+# fall back to the distro debhelper level when no >= 11 is available
+# (buster ships 12, stretch gets 11 via backports, jessie only has 9)
 compat=$(dpkg-query -W -f='${Version}' debhelper | cut -d. -f1)
 if [ "${compat:-0}" -lt 11 ]; then
-    sed -i 's|echo "11" >|echo "10" >|g' Makefile
+    sed -i "s|echo \"11\" >|echo \"${compat}\" >|g" Makefile
+    # the static template file is copied over the echoed one during base
+    sed -i "s|^[0-9]*$|${compat}|" debian/compat
+    sed -i "s|debhelper (>= 11)|debhelper (>= ${compat})|g" debian/nginx.control.in
+fi
+# --no-stop-on-upgrade needs debhelper >= 10; on older ones accept the
+# default (service restarts during upgrade)
+if [ "${compat:-0}" -lt 10 ]; then
+    sed -i 's| --no-stop-on-upgrade||g' debian/nginx.rules.in
+    # dh_installsystemd does not exist before debhelper 10; the sysvinit
+    # script still gets generated into a systemd unit on jessie
+    sed -i '/dh_installsystemd/d' debian/nginx.rules.in
+fi
+# jessie has no libpcre2 - declare the PCRE1 package instead
+if [ "$DIST" = jessie ]; then
+    sed -i 's|libpcre2-dev|libpcre3-dev|g' debian/nginx.control.in
 fi
 
 # HTTP/3 needs a QUIC-capable OpenSSL (3.x) - EOL dists ship 1.0.x/1.1.x,

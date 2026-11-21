@@ -4,11 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       dist:
-        description: 'Target suite ("all" = stretch, buster, bullseye)'
+        description: 'Target suite ("all" = jessie, stretch, buster, bullseye)'
         type: choice
         required: true
         default: 'stretch'
         options:
+          - 'jessie'
           - 'stretch'
           - 'buster'
           - 'bullseye'
@@ -36,7 +37,7 @@ jobs:
       - id: list
         run: |
           if [ "${{ inputs.dist }}" = "all" ]; then
-            echo '["stretch","buster","bullseye"]' >/tmp/dists.json
+            echo '["jessie","stretch","buster","bullseye"]' >/tmp/dists.json
           else
             printf '["%s"]\n' "${{ inputs.dist }}" >/tmp/dists.json
           fi
@@ -68,10 +69,12 @@ jobs:
 
       - name: Build package
         run: |
+          img="debian:${{ matrix.dist }}"
+          [ "${{ matrix.dist }}" = jessie ] && img="debian/eol:jessie"
           docker run --rm --shm-size=4g \
             -e DIST -e NGINX_TAG \
             -v "$GITHUB_WORKSPACE:/src" -w /src \
-            "debian:${{ matrix.dist }}" \
+            "$img" \
             bash -c '
               set -e
               case "$DIST" in stretch|buster|bullseye)
