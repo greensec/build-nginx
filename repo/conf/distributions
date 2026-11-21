@@ -1,3 +1,12 @@
+Codename: bullseye
+Suite: bullseye
+Components: main
+Architectures: amd64
+SignWith: 913D23342459EED342AA7C06B6FC89BCBDD49336
+DebOverride: override.bullseye
+DscOverride: override.bullseye
+Description: greensec/build-nginx
+
 Codename: buster
 Suite: buster
 Components: main
@@ -14,12 +23,4 @@ Architectures: amd64
 SignWith: 913D23342459EED342AA7C06B6FC89BCBDD49336
 DebOverride: override.stretch
 DscOverride: override.stretch
-
-Codename: bullseye
-Suite: bullseye
-Components: main
-Architectures: amd64
-SignWith: 913D23342459EED342AA7C06B6FC89BCBDD49336
-DebOverride: override.bullseye
-DscOverride: override.bullseye
 
