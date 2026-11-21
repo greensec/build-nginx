@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>greensec build-nginx</title>
+<style>
+body { font-family: system-ui, sans-serif; max-width: 60em; margin: 2em auto; padding: 0 1em; color: #222; }
+code, pre { background: #f4f4f4; padding: .2em .4em; border-radius: 3px; }
+pre { padding: 1em; overflow-x: auto; }
+table { border-collapse: collapse; }
+td, th { border: 1px solid #ccc; padding: .35em .7em; text-align: left; }
+</style>
+</head>
+<body>
+<h1>greensec build-nginx</h1>
+<p>nginx packages for Debian suites the official nginx.org repo dropped:
+<strong>stretch</strong>, <strong>buster</strong>, <strong>bullseye</strong> (amd64).
+Built with upstream <a href="https://github.com/nginx/pkg-oss">pkg-oss</a>
+packaging - drop-in replacements for the nginx.org <code>nginx</code> package.</p>
+
+<h2>Install</h2>
+<pre>wget -qO- https://greensec.github.io/build-nginx/add-repository.sh | sh
+apt-get install nginx</pre>
+
+<p><strong>Freexian ELTS is required</strong> on these EOL dists - the
+script installs it automatically.</p>
+
+<h2>Details</h2>
+<ul>
+<li>Apt repo: <code>https://greensec.github.io/build-nginx/repo</code></li>
+<li>Signing key: <a href="public.key">public.key</a></li>
+<li>Source + build pipeline: <a href="https://github.com/greensec/build-nginx">github.com/greensec/build-nginx</a></li>
+<li>Version history: VERSIONS.md in the repo</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,111 @@
+name: build nginx packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      dist:
+        description: 'Target suite ("all" = stretch, buster, bullseye)'
+        type: choice
+        required: true
+        default: 'stretch'
+        options:
+          - 'stretch'
+          - 'buster'
+          - 'bullseye'
+          - 'all'
+      nginx_tag:
+        description: 'pkg-oss git tag (nginx version-release)'
+        type: string
+        required: true
+        default: '1.30.7-1'
+      release:
+        description: 'publish to apt repository'
+        type: boolean
+        required: true
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  dists:
+    runs-on: ubuntu-latest
+    outputs:
+      list: ${{ steps.list.outputs.dists }}
+    steps:
+      - id: list
+        run: |
+          if [ "${{ inputs.dist }}" = "all" ]; then
+            echo '["stretch","buster","bullseye"]' >/tmp/dists.json
+          else
+            printf '["%s"]\n' "${{ inputs.dist }}" >/tmp/dists.json
+          fi
+          cat /tmp/dists.json
+          echo "dists=$(cat /tmp/dists.json)" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: dists
+    name: "nginx ${{ inputs.nginx_tag }} for ${{ matrix.dist }}"
+    strategy:
+      fail-fast: false
+      # serialize matrix jobs at the strategy level - a concurrency group
+      # only holds one pending job, so queued matrix jobs would cancel
+      # each other
+      max-parallel: 1
+      matrix:
+        dist: ${{ fromJSON(needs.dists.outputs.list) }}
+    # serialize builds - the runner fleet is one box and the publish step
+    # pushes to the same gh-pages branch
+    concurrency:
+      group: "nginx-build"
+      cancel-in-progress: false
+    runs-on: [self-hosted, linux, x64]
+    container:
+      image: "debian:${{ matrix.dist }}"
+      options: --shm-size=4g
+    steps:
+      - name: Point EOL suites at archive.debian.org
+        if: matrix.dist == 'stretch' || matrix.dist == 'buster' || matrix.dist == 'bullseye'
+        run: |
+          sed -i -e '/${{ matrix.dist }}-updates/d' -e '/${{ matrix.dist }}-backports/d' \
+              -e 's|deb\.debian\.org/debian-security|archive.debian.org/debian-security|g' \
+              -e 's|deb\.debian\.org/debian|archive.debian.org/debian|g' \
+              -e 's|security\.debian\.org/debian-security|archive.debian.org/debian-security|g' \
+              /etc/apt/sources.list
+          if [ "${{ matrix.dist }}" = stretch ]; then
+            echo "deb http://archive.debian.org/debian stretch-backports main" \
+              >>/etc/apt/sources.list
+          fi
+
+      - name: Install git for checkout
+        run: apt-get update -qq && apt-get install -y --no-install-recommends git ca-certificates
+
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Build package
+        run: ./scripts/build.sh
+        env:
+          DIST: ${{ matrix.dist }}
+          NGINX_TAG: ${{ inputs.nginx_tag }}
+
+      - name: Upload deb files
+        uses: actions/upload-artifact@v7
+        with:
+          name: "nginx-${{ inputs.nginx_tag }}-${{ matrix.dist }}"
+          path: ./out/*.deb
+
+      - name: Publish to gh-pages apt repo
+        uses: smeinecke/apt-repo-action@v2.2.4
+        if: inputs.release == true
+        with:
+          github_token: ${{ github.token }}
+          repo_supported_arch: amd64
+          repo_supported_version: ${{ matrix.dist }}
+          file: |
+            ./out/*.deb
+          version_by_filename: true
+          private_key: ${{ secrets.APT_SIGNING_KEY }}
+          public_key: ${{ vars.APT_PUBLIC_KEY }}
+          key_passphrase: ""
+          skip_duplicates: true
