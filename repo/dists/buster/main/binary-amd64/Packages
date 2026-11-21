@@ -20,3 +20,22 @@ Description: high performance web server
  nginx [engine x] is an HTTP and reverse proxy server, as well as
  a mail proxy server.
 
+Package: nginx-dbg
+Source: nginx
+Version: 1.30.7-1~buster
+Architecture: amd64
+Maintainer: NGINX Packaging <nginx-packaging@f5.com>
+Installed-Size: 7635
+Depends: nginx (= 1.30.7-1~buster)
+Homepage: https://nginx.org
+Priority: optional
+Section: debug
+Filename: pool/main/n/nginx/nginx-dbg_1.30.7-1~buster_amd64.deb
+Size: 7239320
+SHA256: 0212e3dd5f6eb0bf1bdf40ed80726d8943d8728539c7ecdaee09da735e547ead
+SHA1: a14baff1024a4c28629d92f4b26302a5af3f2a29
+MD5sum: e4159256dab0176369571434fb254a5c
+Description: nginx debug symbols
+ This package contains the debugging symbols for nginx.
+Build-Ids: 8589f1343e36624fd30bece66938fafa0c787445 d22733a539faba23394dfd0bfde2c9de67e8beb6
+
