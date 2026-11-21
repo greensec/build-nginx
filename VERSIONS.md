@@ -5,9 +5,9 @@ tags and published to `https://greensec.github.io/build-nginx/repo`.
 
 | suite | version | built | notes |
 |---|---|---|---|
-| stretch | - | pending | debhelper via stretch-backports; OpenSSL 1.1.0 (no TLS 1.3) |
-| buster | - | pending | |
-| bullseye | - | pending | |
+| stretch | `1.30.7-1~stretch` | 2026-11-21 | debhelper via stretch-backports; OpenSSL 1.1.0 (no TLS 1.3/QUIC) |
+| buster | `1.30.7-1~buster` | 2026-11-21 | no QUIC (OpenSSL 1.1.1) |
+| bullseye | `1.30.7-1~bullseye` | 2026-11-21 | no QUIC (OpenSSL 1.1.1) |
 
 ## Fixes in 1.30.7 (NGINX2Root, 2026-11-18)
 
