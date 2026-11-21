@@ -1,3 +1,2 @@
-out/
-cache/
-*.deb
+repo/db/
+repo/lists/
