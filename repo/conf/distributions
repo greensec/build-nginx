@@ -1,0 +1,23 @@
+Codename: stretch
+Suite: stretch
+Components: main
+Architectures: amd64
+SignWith: default
+DebOverride: override.stretch
+DscOverride: override.stretch
+
+Codename: buster
+Suite: buster
+Components: main
+Architectures: amd64
+SignWith: default
+DebOverride: override.buster
+DscOverride: override.buster
+
+Codename: bullseye
+Suite: bullseye
+Components: main
+Architectures: amd64
+SignWith: default
+DebOverride: override.bullseye
+DscOverride: override.bullseye

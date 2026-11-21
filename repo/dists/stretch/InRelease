@@ -1,0 +1,36 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Suite: stretch
+Codename: stretch
+Date: Sat, 21 Nov 2026 13:39:07 UTC
+Architectures: amd64
+Components: main
+MD5Sum:
+ 393ad4ce63c96ac78a5d1f6b49bbd1df 796 main/binary-amd64/Packages
+ e572ae6096d24fbfab75ff6f22117480 526 main/binary-amd64/Packages.gz
+ e7eae21d1a03226b16cb9bb5dd03da5c 53 main/binary-amd64/Release
+SHA1:
+ fd561ee45e5a46ec374c0eb961957cb3637598c0 796 main/binary-amd64/Packages
+ 155d3e068d1b0469d9333e86d1e8d76b145bd549 526 main/binary-amd64/Packages.gz
+ 2eb673587230517bc8a7da15b2812d4efc42a54d 53 main/binary-amd64/Release
+SHA256:
+ 27717ec98097dc28df66bb1de63cac498a2c3790590ce89e1475336ffff91300 796 main/binary-amd64/Packages
+ 7f4787669a00b7f7b9b53c5299709977a808bf62350ec1ba7a5b0ed1e7050aa8 526 main/binary-amd64/Packages.gz
+ 7ab9055a660a7dae7b5dd6cf82a402985dc56581a0c1ea395720df6bd502eb50 53 main/binary-amd64/Release
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEkT0jNCRZ7tNCqnwGtvyJvL3UkzYFAmsBnvsACgkQtvyJvL3U
+kza9kQ//Y71nCakjIcp7iARrERRLV20lVjV/8L4kmlTzPufq95m+HmI1b3kLpb7u
+g7iH+LI5047lEyo4X2dQ2aleAZ26e1ePzrpl7Ab9gQgmH7Xpe4ODDyZzI+aCtk25
+NNCEbIndTgoL53TPF2TrEluDIr1yqXdWMV87g2cdZsaTxIRCrOmpZZ3KTfXSH6rz
+zngh8Y8VYWsCzcV4+YpHtl9kJJSWlxkIkbBrbt0JBEdCyO+CedptXYewGbrqiDOF
+/edl2GQCD+I0flxzeEgd/7icD2dZOMSahRFg/NoPNZySCpDDBoKtO3TNZwz8FwXY
+NuS/FpY6UOz9kX4p0ETOABmkYvVoZNy+bJn/dJT/IOTq4ObsSo1vvMNXg4sebcXh
+eEwlNaquzS1spjXApGFSwQfXGaqEvzRWjDjDJcPG+iwLE7Zrli+xQa2q21USCDem
+VsxXH92MIhmA9TJzGY/Yixq5CDSgcTsaEVjOnYP+582cF9T4peTu2pVmOsd/Llw/
+lxWm7wwS3Tc8/GWBAPkN428OMP/cCUrn3wpn9+xj7P770UcKtQV9as2itfB4OBYo
+6+/9Om0XGeG0eEJmf0tIV0/+2coCtAP8HVolT9cvfSZpcor56lu72jO11bbnhu2f
+oCrxIrdo+niVWwNFVfMh9DwI8Zo/J4xrjlwG8oH84m+xJnZ01IY=
+=CuQw
+-----END PGP SIGNATURE-----

@@ -1,0 +1,17 @@
+Suite: bullseye
+Codename: bullseye
+Date: Sat, 21 Nov 2026 13:39:08 UTC
+Architectures: amd64
+Components: main
+MD5Sum:
+ f96fc226b2b0c8daa5b858967c95c0d5 833 main/binary-amd64/Packages
+ 1d6de575359c04422ced6febad2a6f10 540 main/binary-amd64/Packages.gz
+ 5bea27a34536ce1f9f00dc5a0e6cfc08 54 main/binary-amd64/Release
+SHA1:
+ 7b09406608ba8afd63cfe95a299c4111a0379005 833 main/binary-amd64/Packages
+ a528f92835bfa36c071829ec9ab6914597607aef 540 main/binary-amd64/Packages.gz
+ 4a0cf32bcc97f75f3cb0fdf652d153e1b559eb6e 54 main/binary-amd64/Release
+SHA256:
+ 50251a70743f56e19ed6b5e900c1f998cb8a2430d03470bf118a61de2617e7a0 833 main/binary-amd64/Packages
+ aebcfd1a44de48f8c2257d0ac0bfefe03255b7b38b64fe676d9a78821fd875eb 540 main/binary-amd64/Packages.gz
+ 6433ce15d721cb3d3f99b6b633243d27c0f42febc7693e26e17d45d1c12be838 54 main/binary-amd64/Release

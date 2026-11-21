@@ -1,0 +1,22 @@
+Package: nginx
+Version: 1.30.7-1~stretch
+Architecture: amd64
+Maintainer: NGINX Packaging <nginx-packaging@f5.com>
+Installed-Size: 3309
+Depends: libc6 (>= 2.17), libpcre2-8-0, libssl1.1 (>= 1.1.0), zlib1g (>= 1:1.1.4), lsb-base (>= 3.0-6)
+Recommends: logrotate
+Conflicts: nginx-common, nginx-core
+Replaces: nginx-common, nginx-core
+Provides: httpd, nginx, nginx-r1.30.7
+Homepage: https://nginx.org
+Priority: optional
+Section: httpd
+Filename: pool/main/n/nginx/nginx_1.30.7-1~stretch_amd64.deb
+Size: 962154
+SHA256: 4796e2dbc50d3ca9375c8e7218e0258acb52764568823e74453f027878de9643
+SHA1: 7f72aac472fc6a6232e67b957f682cb0c5d8b9cd
+MD5sum: 2991814ede248284a5d980399b6554e8
+Description: high performance web server
+ nginx [engine x] is an HTTP and reverse proxy server, as well as
+ a mail proxy server.
+
