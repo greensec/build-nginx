@@ -3,34 +3,35 @@ Hash: SHA512
 
 Suite: buster
 Codename: buster
-Date: Sat, 21 Nov 2026 13:43:20 UTC
+Date: Sat, 21 Nov 2026 13:48:30 UTC
 Architectures: amd64
 Components: main
+Description: greensec/build-nginx
 MD5Sum:
- 3d39b4c3336b7ad589e2477e7b13f9ea 1476 main/binary-amd64/Packages
- f6ebb88fc1d0f418ea8e298109882277 775 main/binary-amd64/Packages.gz
- 13d21fa468b4e11dbb3d4c9b9678dcb0 52 main/binary-amd64/Release
+ cb8eaf70c9b7c403cd5b01ef337e7094 1476 main/binary-amd64/Packages
+ 20397adb3a48abc477b5a84edea9a98e 775 main/binary-amd64/Packages.gz
+ 106c665a96aa53b37939cd4b6041d5e5 86 main/binary-amd64/Release
 SHA1:
- 355e4db34a69b05cd29b141fe593ec5601510e8d 1476 main/binary-amd64/Packages
- 08f0d6258c045255e37322bc625a2d4a5c301f02 775 main/binary-amd64/Packages.gz
- 2179f2e94c03919fba8ce157bb4ddaa34b5c0894 52 main/binary-amd64/Release
+ 6ef774fa793177198af03225ce5f52ec813cb2ac 1476 main/binary-amd64/Packages
+ 3cf7239c5783046e5681408503c7ea7ba0c358c3 775 main/binary-amd64/Packages.gz
+ 52e01bf420aabf09b9060c490e1c6828fe7f3434 86 main/binary-amd64/Release
 SHA256:
- b9f90eb914a8cdcd2ea787fc6b5552ebe03a9310305424a8dfd2a3d357d50ba8 1476 main/binary-amd64/Packages
- 966d8ca3c54b1ee043b833392a9a4a03c6c79c800133c017db143d0227adf671 775 main/binary-amd64/Packages.gz
- 4f1dba6c683fa1f751be437cb1e39a18313a97934c85691512f9003ac7e95cb4 52 main/binary-amd64/Release
+ 5c5655d218eccc764d1c7c70a7d80677e013ab36d113c8152b11db478c2e845d 1476 main/binary-amd64/Packages
+ 19d101837f91c573a525570f250c0cc4473ae4c46b405dcc98d72d285c0e18ac 775 main/binary-amd64/Packages.gz
+ c163819459f701e59227b2e6a26da5e0c5788aff8e316607170accce78e23ff0 86 main/binary-amd64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEkT0jNCRZ7tNCqnwGtvyJvL3UkzYFAmsBn/gACgkQtvyJvL3U
-kzYa8A/+MBAYM1IFH76uOdWoWtcS4hIH6wStSu/ECugy3r9EStX2vvSuhLRZa92t
-0xZG9k7eKtxYUyr5E8ZMwqktrulGqV9TqQfOmyig9ENfV1HcrparNBlSQMTCChx8
-QqaWiX90eu2RTztuLf/0k9bmhRosswxQkYDPgrTdZmMIIldFYOYkdJsnh7eoCOZz
-SL5vUUbAHoq0+fBV/UItgAqbFfngzIX8wytY3k+bdE1SXa1AfUdwZPt/WUFQiW8a
-5H470ojj6ASeGFjLXDDOiA3j2aAPCqDJzfSFuWbfGccpFv6JRk+qTgoHroTc6vWa
-h36XoXo947A2Zc2tWIceeTkJehQRrXa/MyINpLjFuJcsyaXcgKg1xkaMPNdlcvOI
-Pfo0ZMpTiK52ETahOMnQA1r79xN9Sq46owSZX1hLspUNtW9vXpiHeerZshwWUFqO
-nvWvZZYngN0A2JIwu/wKfBnTapSupnhUJDnDgfMXYxdF3VZONh//uqZ81sIiLq5q
-DKumwlPNAMZt9bHIlRf0uFPoZWWFyzALK588jWFtvwskPhXqLNA9Q6pMDIg9eutF
-Xjdf16f8434WCTFUzLnyZfYjNOkpMSsvNXmkmhZgSEhvD2aIlOsCZR5kY9hi8ZoQ
-xXnYn+g/A+TBdk8I+kBQuuyRfMgbKkuwuxL546VHyS9iVamQYxE=
-=TJwc
+iQIzBAEBCgAdFiEEkT0jNCRZ7tNCqnwGtvyJvL3UkzYFAmsBoS4ACgkQtvyJvL3U
+kzaWog//Thpz/JO9KVmvtNL/LkUeR/tVk3feyGGEXLQORZuo0zySlF2tVUZU8BBB
+ef1jH07eLCWo+8YvLTwV5YybUo2aur8n18ZP/YfScC6AL/f7IRXCWsX17LLE8l3r
+rPp5TXmM3QjD8rol9giOxv4wQ6nMnRHEbkcpP7CBSGWR8DLwVG4FMM+elxEVx52d
+FV9AgMuTNB53YaiDxVVZG8F8bQv6S/d0VEWWYwOIhD1ONRC4zoL7vBPetnULXTEt
+VOiVV3ppz2Yc2tE04M0GFYidn373KFXjX2fByLsmoSrnScaRZ88cpEwXdJ/fj4My
+Uy9/Xy9DJgKIIotpv7dsdOeJiAQuUQYjx+km8G6k6pC2XtGdp/EjgMQ7l0NqOwbH
+mqpay+RluRhiseJdeyR4qsHP9DbzimqA4v3ltxKbod/chPaCgZXNDIddSM2KeU0+
+iRC31Pd2O/b2lBUAoB4ivT5yE4puNJ2yn+0GhTihkoYMwB/VsZ4hZ44JL2vua8vM
+2U7iMPVtUzmvu8ZpWgI8uxB3EMeopi5xmEO9WBFwyd3/qhp9/jopFRtnF1CFp7U3
+HNbMJZWWOiMe7Ld4DMsGVsQyi3o5L6fP6OpTncvX1o5b3ZGfX/yVZjWf+vAZZCrC
+QXhSxp1n5s3nhO38cdyIlZM4FQIVxh8eET96jIV+8gfZrvEAM5A=
+=g9pM
 -----END PGP SIGNATURE-----

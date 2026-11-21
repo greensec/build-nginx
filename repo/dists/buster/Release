@@ -1,17 +1,18 @@
 Suite: buster
 Codename: buster
-Date: Sat, 21 Nov 2026 13:43:20 UTC
+Date: Sat, 21 Nov 2026 13:48:30 UTC
 Architectures: amd64
 Components: main
+Description: greensec/build-nginx
 MD5Sum:
- 3d39b4c3336b7ad589e2477e7b13f9ea 1476 main/binary-amd64/Packages
- f6ebb88fc1d0f418ea8e298109882277 775 main/binary-amd64/Packages.gz
- 13d21fa468b4e11dbb3d4c9b9678dcb0 52 main/binary-amd64/Release
+ cb8eaf70c9b7c403cd5b01ef337e7094 1476 main/binary-amd64/Packages
+ 20397adb3a48abc477b5a84edea9a98e 775 main/binary-amd64/Packages.gz
+ 106c665a96aa53b37939cd4b6041d5e5 86 main/binary-amd64/Release
 SHA1:
- 355e4db34a69b05cd29b141fe593ec5601510e8d 1476 main/binary-amd64/Packages
- 08f0d6258c045255e37322bc625a2d4a5c301f02 775 main/binary-amd64/Packages.gz
- 2179f2e94c03919fba8ce157bb4ddaa34b5c0894 52 main/binary-amd64/Release
+ 6ef774fa793177198af03225ce5f52ec813cb2ac 1476 main/binary-amd64/Packages
+ 3cf7239c5783046e5681408503c7ea7ba0c358c3 775 main/binary-amd64/Packages.gz
+ 52e01bf420aabf09b9060c490e1c6828fe7f3434 86 main/binary-amd64/Release
 SHA256:
- b9f90eb914a8cdcd2ea787fc6b5552ebe03a9310305424a8dfd2a3d357d50ba8 1476 main/binary-amd64/Packages
- 966d8ca3c54b1ee043b833392a9a4a03c6c79c800133c017db143d0227adf671 775 main/binary-amd64/Packages.gz
- 4f1dba6c683fa1f751be437cb1e39a18313a97934c85691512f9003ac7e95cb4 52 main/binary-amd64/Release
+ 5c5655d218eccc764d1c7c70a7d80677e013ab36d113c8152b11db478c2e845d 1476 main/binary-amd64/Packages
+ 19d101837f91c573a525570f250c0cc4473ae4c46b405dcc98d72d285c0e18ac 775 main/binary-amd64/Packages.gz
+ c163819459f701e59227b2e6a26da5e0c5788aff8e316607170accce78e23ff0 86 main/binary-amd64/Release
