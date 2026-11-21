@@ -1,0 +1,17 @@
+Codename: jessie
+Date: Sat, 21 Nov 2026 14:26:57 UTC
+Architectures: amd64
+Components: main
+Description: greensec/build-nginx
+MD5Sum:
+ 8e19ba1d47c5369648c26c63be51618a 1382 main/binary-amd64/Packages
+ 08dc51f67635818a9ac24cc15b625061 713 main/binary-amd64/Packages.gz
+ 8a6f34d9ef48a88fb738dcd95a0f5ca5 70 main/binary-amd64/Release
+SHA1:
+ 412710fe28dc61a7bae9fec17aaa265ab95f636b 1382 main/binary-amd64/Packages
+ 509749e886184b9baca8ec742a189fc945b7f550 713 main/binary-amd64/Packages.gz
+ 6135bddb64abeaf8652545ff5b56413838284b10 70 main/binary-amd64/Release
+SHA256:
+ 29d1e0bd4c552b01c26fec9875879eb6ea3cdb8a66aa346a3048726fb878a867 1382 main/binary-amd64/Packages
+ 52c188fbead0f3afeea2c37ac1d5549aecfd2157cd1329435e60cec8a50245bf 713 main/binary-amd64/Packages.gz
+ 7b9b49afc8432b910e0b72c024bd3a82bd96b93fbba8258598f6498eafbafbf3 70 main/binary-amd64/Release
