@@ -59,31 +59,34 @@ jobs:
       group: "nginx-build"
       cancel-in-progress: false
     runs-on: ubuntu-latest
-    container:
-      image: "debian:${{ matrix.dist }}"
-      options: --shm-size=4g
     steps:
-      - name: Point EOL suites at archive.debian.org
-        if: matrix.dist == 'stretch' || matrix.dist == 'buster' || matrix.dist == 'bullseye'
-        run: |
-          sed -i -e '/${{ matrix.dist }}-updates/d' -e '/${{ matrix.dist }}-backports/d' \
-              -e 's|deb\.debian\.org/debian-security|archive.debian.org/debian-security|g' \
-              -e 's|deb\.debian\.org/debian|archive.debian.org/debian|g' \
-              -e 's|security\.debian\.org/debian-security|archive.debian.org/debian-security|g' \
-              /etc/apt/sources.list
-          if [ "${{ matrix.dist }}" = stretch ]; then
-            echo "deb http://archive.debian.org/debian stretch-backports main" \
-              >>/etc/apt/sources.list
-          fi
-
-      - name: Install git for checkout
-        run: apt-get update -qq && apt-get install -y --no-install-recommends git ca-certificates
-
+      # Note: no container: job - actions inside the container need node with
+      # glibc >= 2.28, which stretch does not have. Build in a docker run
+      # instead; checkout/publish run on the host.
       - name: Checkout
         uses: actions/checkout@v7
 
       - name: Build package
-        run: ./scripts/build.sh
+        run: |
+          docker run --rm --shm-size=4g \
+            -e DIST -e NGINX_TAG \
+            -v "$GITHUB_WORKSPACE:/src" -w /src \
+            "debian:${{ matrix.dist }}" \
+            bash -c '
+              set -e
+              case "$DIST" in stretch|buster|bullseye)
+                sed -i -e "/${DIST}-updates/d" -e "/${DIST}-backports/d" \
+                    -e "s|deb\.debian\.org/debian-security|archive.debian.org/debian-security|g" \
+                    -e "s|deb\.debian\.org/debian|archive.debian.org/debian|g" \
+                    -e "s|security\.debian\.org/debian-security|archive.debian.org/debian-security|g" \
+                    /etc/apt/sources.list
+                if [ "$DIST" = stretch ]; then
+                  echo "deb http://archive.debian.org/debian stretch-backports main" \
+                    >>/etc/apt/sources.list
+                fi ;;
+              esac
+              ./scripts/build.sh
+            '
         env:
           DIST: ${{ matrix.dist }}
           NGINX_TAG: ${{ inputs.nginx_tag }}
