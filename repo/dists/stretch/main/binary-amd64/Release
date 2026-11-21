@@ -1,3 +1,4 @@
 Archive: stretch
 Component: main
 Architecture: amd64
+Description: greensec/build-nginx

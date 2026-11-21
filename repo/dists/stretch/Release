@@ -1,17 +1,18 @@
 Suite: stretch
 Codename: stretch
-Date: Sat, 21 Nov 2026 13:50:52 UTC
+Date: Sat, 21 Nov 2026 13:56:19 UTC
 Architectures: amd64
 Components: main
+Description: greensec/build-nginx
 MD5Sum:
- 393ad4ce63c96ac78a5d1f6b49bbd1df 796 main/binary-amd64/Packages
- e572ae6096d24fbfab75ff6f22117480 526 main/binary-amd64/Packages.gz
- e7eae21d1a03226b16cb9bb5dd03da5c 53 main/binary-amd64/Release
+ 569f10371860ca19331fcb09a61ea9a2 1470 main/binary-amd64/Packages
+ a67aba6cdcbc8f81b4cfdf791f273dda 771 main/binary-amd64/Packages.gz
+ 71d51f00e76e09d07d0f51d7b83f9cfc 87 main/binary-amd64/Release
 SHA1:
- fd561ee45e5a46ec374c0eb961957cb3637598c0 796 main/binary-amd64/Packages
- 155d3e068d1b0469d9333e86d1e8d76b145bd549 526 main/binary-amd64/Packages.gz
- 2eb673587230517bc8a7da15b2812d4efc42a54d 53 main/binary-amd64/Release
+ 3abd82295e34eb166a4dcb3cdc6fac7a54d1e89a 1470 main/binary-amd64/Packages
+ 836675d6d31db6fcf74089fc1d29ce10a91bae05 771 main/binary-amd64/Packages.gz
+ 2bea4fd6d6a3a402e1b1d9f83fa692c9e62ad3c7 87 main/binary-amd64/Release
 SHA256:
- 27717ec98097dc28df66bb1de63cac498a2c3790590ce89e1475336ffff91300 796 main/binary-amd64/Packages
- 7f4787669a00b7f7b9b53c5299709977a808bf62350ec1ba7a5b0ed1e7050aa8 526 main/binary-amd64/Packages.gz
- 7ab9055a660a7dae7b5dd6cf82a402985dc56581a0c1ea395720df6bd502eb50 53 main/binary-amd64/Release
+ 4feb3f88301cc4abadd6cfe3a48c0712e9092c20b479486f9a59ffea359a67ce 1470 main/binary-amd64/Packages
+ 9fce91d545f45ceb693443182dcf06e0f1e0b44f8e7a3acd3f9b2a38ae5ff584 771 main/binary-amd64/Packages.gz
+ 70395a8eda59f5524bdf68c2df7a254a26890474cf920c2b86245460b884e086 87 main/binary-amd64/Release
