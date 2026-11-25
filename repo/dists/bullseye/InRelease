@@ -3,7 +3,7 @@ Hash: SHA512
 
 Suite: bullseye
 Codename: bullseye
-Date: Sat, 21 Nov 2026 14:26:57 UTC
+Date: Wed, 25 Nov 2026 15:35:52 UTC
 Architectures: amd64
 Components: main
 Description: greensec/build-nginx
@@ -21,17 +21,17 @@ SHA256:
  a9aa057f522184158b8b306b608afdbc2765c1c5d376427770860cdddd6c2f3f 88 main/binary-amd64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEkT0jNCRZ7tNCqnwGtvyJvL3UkzYFAmsBqjEACgkQtvyJvL3U
-kzbQiBAAkZbVE5NpE0XtM4C65nXLn8F7kuxKnT7KWhlQo7CwUUadsxCzAxhLmaAF
-1U3zrv6k57izcYnQLPDw8qidSWNf6ch0riuTGmkoFgaIdc0OtEUBJuVpMN33d0IW
-biM/aikz0GS6o6h/ISD/vKRHqsBLS+RwKZfgcoDtJurXW3guzjFp/s8wgzDDnALs
-kmKl+U4xZlDjNiJnvZ5xhJXqEYi/Tivf9ZNq5yYbSUg1l76ksrMs7egvZGgd7HBv
-mZ0sw/K+JMgiMeV2xnaP03a+QIf7sLklqpGmM+anYzElniyOxzXSg75RPs2k77gl
-vQykV/P/ESzO7Dq8RmZWGmskhuWja6lS75uVkvK1/Q9+mXbcD/pliCHYXGiZMsRT
-eJirc3SmRhRcq0qOVFg/eObM3t2eNdLRO3c7lvYBgWLZR6vtu4eo+qapGAzu5ExL
-G30EroFnWME95u2irwQh7I12BuQofl3YCYJwe/ab3h3e/LguJwAwpa1K+zJRQ9+j
-4/WnZ2/xjb+owd87gStrhgmafUBrWttqvymaqYmicvRGx69sAunYKbo/zXOxEaNT
-yIkMuvYq4R8bYegkon89krReSnsy2eTigHgpVuaN1eGlgZYiCzH3EHBkTM1bf+MD
-+wpKwxaQwIMKR2kX71cZjF2lftDL1LVutKFWtIRITrrzfMIxpTY=
-=0LUy
+iQIzBAEBCgAdFiEEkT0jNCRZ7tNCqnwGtvyJvL3UkzYFAmsHAFkACgkQtvyJvL3U
+kzYEyRAAmQ65lc2qXha5bWK3RobVheQe5yiEt0XoBwSFBN5BF75GicLOSpZ1xrxs
+qty/DsR1k4jtjas5o83nF4v/XvAtV2G27baIlppUiet18Ee836y40RwWRjps3eT5
+gWDucEHWUdRP3Kw6hgOBF3XaTPPALZtwOeq+zNY5b8kGToIBzX9UVb9QK1CtfzDk
+iDP0WXPZt0al5QQXKLkC9TGOtF5Q7DDC584oeAtBQuiYnI+ryEtA0fI3+2LhWjoQ
+IGyai+2CuZIAS11DKBryhe8YllitYMHHVxd8plQ2BPJfYZdIVcLkKgU8m67j/Bgd
++9+IpkMP8ajWbkyfYUniwb5Qw+TfM8t5RUdU+7vZEBcVpdMI9w8J79pcS85EYe3P
+39V1Z3Qw2WdBzGl8gVaUaVCw/42bEmZsdTQGQeT9K5tsEN+DpsvQQqZ5kHUelO/s
+dVAGNrOCq393wEor2Jpry0zcGiivjmN31cyEzsMc3W2nFqLxIAM7LdpBW4f94JPp
+shbXioxFjSBm9e3/17Q1Mrg/YxLi4Tu/sBd5qUVKBzwx9jTDADVZT3KC/crN6G8+
+7XMNcplBRwuIVpPC+T47H0uH0bh3CEcttXtp+dOcHcoCUQYJt93OHnL8+PS0ZvfC
+aPM+rbA7DAF0KGoEBM7EpQE4WheV4BkS389PYZ2H+nsby1fsbz0=
+=SRHW
 -----END PGP SIGNATURE-----

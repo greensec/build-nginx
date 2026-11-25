@@ -1,5 +1,5 @@
 Package: nginx
-Version: 1.30.7-1~jessie
+Version: 1.30.8-1~jessie
 Architecture: amd64
 Maintainer: NGINX Packaging <nginx-packaging@f5.com>
 Installed-Size: 3383
@@ -7,34 +7,34 @@ Depends: libc6 (>= 2.17), libpcre3 (>= 1:8.35), libssl1.0.0 (>= 1.0.0), zlib1g (
 Recommends: logrotate
 Conflicts: nginx-common, nginx-core
 Replaces: nginx-common, nginx-core
-Provides: httpd, nginx, nginx-r1.30.7
+Provides: httpd, nginx, nginx-r1.30.8
 Homepage: https://nginx.org
 Priority: optional
 Section: httpd
-Filename: pool/main/n/nginx/nginx_1.30.7-1~jessie_amd64.deb
-Size: 953304
-SHA256: 6a066a4969e76e182f97b2f3516e74e41eec8b390b90512be79d7a262103c519
-SHA1: 1c5408ac3717ee639c4b711650accbef2e514aa4
-MD5sum: c6b5ce062c06ed67926aa62b56bc8af2
+Filename: pool/main/n/nginx/nginx_1.30.8-1~jessie_amd64.deb
+Size: 953552
+SHA256: 4ead800584b528cbc62002670e55192aa91d238148468be989a310597f7718ce
+SHA1: ba536dab099f27653ad95d63761319d41d2124e5
+MD5sum: 5cb7f7ccf384c2689e53ba8494f49583
 Description: high performance web server
  nginx [engine x] is an HTTP and reverse proxy server, as well as
  a mail proxy server.
 
 Package: nginx-dbg
 Source: nginx
-Version: 1.30.7-1~jessie
+Version: 1.30.8-1~jessie
 Architecture: amd64
 Maintainer: NGINX Packaging <nginx-packaging@f5.com>
-Installed-Size: 8624
-Depends: nginx (= 1.30.7-1~jessie)
+Installed-Size: 8623
+Depends: nginx (= 1.30.8-1~jessie)
 Homepage: https://nginx.org
 Priority: optional
 Section: debug
-Filename: pool/main/n/nginx/nginx-dbg_1.30.7-1~jessie_amd64.deb
-Size: 8246986
-SHA256: 46c62fb98208fbe676b1c1c06865ca8ff28fe88f5dfa4773d09ef9b3c247be8e
-SHA1: 69f24a086378707f145126422a239576fd6e1198
-MD5sum: 576fd658833f9bf02b2174d253e31533
+Filename: pool/main/n/nginx/nginx-dbg_1.30.8-1~jessie_amd64.deb
+Size: 8244582
+SHA256: f8e01d6ea6f652cd5a0366f9e2df292209f3e78be77f84861df25685317ea70c
+SHA1: 11134253dee662333ae482fdc0234391e6c5f885
+MD5sum: ba55200b4ec20e24b17780d5eeb583d9
 Description: nginx debug symbols
  This package contains the debugging symbols for nginx.
 
