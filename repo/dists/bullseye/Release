@@ -1,18 +1,18 @@
 Suite: bullseye
 Codename: bullseye
-Date: Wed, 25 Nov 2026 15:40:07 UTC
+Date: Wed, 25 Nov 2026 15:42:25 UTC
 Architectures: amd64
 Components: main
 Description: greensec/build-nginx
 MD5Sum:
- 3322128ea8c47275a83edbdabb39c80d 1510 main/binary-amd64/Packages
- aa4b760d3d3f62fa6b13fecbc1ad148f 787 main/binary-amd64/Packages.gz
+ 3b364462212ac19d192d4b7b3819069f 1510 main/binary-amd64/Packages
+ 6485da2ca4bae295120f51b3e3ecf9ea 787 main/binary-amd64/Packages.gz
  c314572d4066c6781364690e6189c9ca 88 main/binary-amd64/Release
 SHA1:
- 76ae19d8efaeb3e1a92ab912ac21a6ac4ba6d5d8 1510 main/binary-amd64/Packages
- 7fa997f57c26f82c4d048c4d8ce8e10b238ec1f7 787 main/binary-amd64/Packages.gz
+ 552bf86faf450811d5e5199f0fa2f1bbdc1c9d48 1510 main/binary-amd64/Packages
+ e87354d100135709aa77d2365348fde51114929c 787 main/binary-amd64/Packages.gz
  e597b381489564bb06ef9cf157ac729c307f111a 88 main/binary-amd64/Release
 SHA256:
- 8ee4ee399dbc9f954f04debf03cbd3e706581a791af2b11dbedac6ddca658487 1510 main/binary-amd64/Packages
- 29a21ac05e32324d48ca77f05f9e1793c048b19a8f7488ddfcf23cd183db4591 787 main/binary-amd64/Packages.gz
+ 9156e928699baa7afc8df2418402a11b0eb218935a37e660354d97d2b5d67fa0 1510 main/binary-amd64/Packages
+ 3ed769c2987b73df674c86cd891ec64024e381f644d35404a5165fcd78082ca2 787 main/binary-amd64/Packages.gz
  a9aa057f522184158b8b306b608afdbc2765c1c5d376427770860cdddd6c2f3f 88 main/binary-amd64/Release

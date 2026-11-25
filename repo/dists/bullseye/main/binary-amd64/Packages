@@ -1,5 +1,5 @@
 Package: nginx
-Version: 1.30.7-1~bullseye
+Version: 1.30.8-1~bullseye
 Architecture: amd64
 Maintainer: NGINX Packaging <nginx-packaging@f5.com>
 Installed-Size: 3333
@@ -7,35 +7,35 @@ Depends: libc6 (>= 2.28), libcrypt1 (>= 1:4.1.0), libpcre2-8-0 (>= 10.22), libss
 Recommends: logrotate
 Conflicts: nginx-common, nginx-core
 Replaces: nginx-common, nginx-core
-Provides: httpd, nginx, nginx-r1.30.7
+Provides: httpd, nginx, nginx-r1.30.8
 Homepage: https://nginx.org
 Priority: optional
 Section: httpd
-Filename: pool/main/n/nginx/nginx_1.30.7-1~bullseye_amd64.deb
-Size: 973872
-SHA256: 1ff8d1afc987139f66d7594e628593cb610ab014d416dd9685cacd29a2551860
-SHA1: ba0e1fa035c13ceb160bf6bc985d68b1369a72ca
-MD5sum: 8ff19066223543de05e22a9a79f90895
+Filename: pool/main/n/nginx/nginx_1.30.8-1~bullseye_amd64.deb
+Size: 973688
+SHA256: 1ef6b55f6c6683bcc5a6a9e138945d3e3778084157aa682875c0a5a7b37219fa
+SHA1: 2b5108fb7bf3e8003e16204de7ed5cd1d15afab2
+MD5sum: 40769bc30cd44433d0f034c40e927aa2
 Description: high performance web server
  nginx [engine x] is an HTTP and reverse proxy server, as well as
  a mail proxy server.
 
 Package: nginx-dbg
 Source: nginx
-Version: 1.30.7-1~bullseye
+Version: 1.30.8-1~bullseye
 Architecture: amd64
 Maintainer: NGINX Packaging <nginx-packaging@f5.com>
 Installed-Size: 6289
-Depends: nginx (= 1.30.7-1~bullseye)
+Depends: nginx (= 1.30.8-1~bullseye)
 Homepage: https://nginx.org
 Priority: optional
 Section: debug
-Filename: pool/main/n/nginx/nginx-dbg_1.30.7-1~bullseye_amd64.deb
-Size: 5950572
-SHA256: aa0e366b8766f494a0b4355733052596f3da2972b86cfb98aeca875fa0118c58
-SHA1: a72ea1ea094c457111117d5ed47c1fe28f2822cb
-MD5sum: 559046bf863f0da319314b440571e460
+Filename: pool/main/n/nginx/nginx-dbg_1.30.8-1~bullseye_amd64.deb
+Size: 5949736
+SHA256: 3709a326219aeb87fded8dc6dbd6086dd531846577528d48752b1dd3c21f00af
+SHA1: 91ee907d20014d6f6e8f874b01d49c3a46cffef8
+MD5sum: bbd7dba7ce64a12dc0b3145e4b40e7e5
 Description: nginx debug symbols
  This package contains the debugging symbols for nginx.
-Build-Ids: 68426074c8e80b1a31d1790f3972a4f786b919dc 77f2777f1e906b2a81643e0c08576a9ca19f6343
+Build-Ids: f5e0ab21dc03f7e2512f1f72c758f9e2d857ab00 fcbdd7ce6c8f294d582999be3310078cff8add33
 
