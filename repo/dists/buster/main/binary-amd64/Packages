@@ -1,5 +1,5 @@
 Package: nginx
-Version: 1.30.7-1~buster
+Version: 1.30.8-1~buster
 Architecture: amd64
 Maintainer: NGINX Packaging <nginx-packaging@f5.com>
 Installed-Size: 3317
@@ -7,35 +7,35 @@ Depends: libc6 (>= 2.28), libpcre2-8-0 (>= 10.32), libssl1.1 (>= 1.1.1), zlib1g 
 Recommends: logrotate
 Conflicts: nginx-common, nginx-core
 Replaces: nginx-common, nginx-core
-Provides: httpd, nginx, nginx-r1.30.7
+Provides: httpd, nginx, nginx-r1.30.8
 Homepage: https://nginx.org
 Priority: optional
 Section: httpd
-Filename: pool/main/n/nginx/nginx_1.30.7-1~buster_amd64.deb
-Size: 975824
-SHA256: 04ccf5285c23740c8f21b9f93bf522269519d423a72445486c7f4f4e50c907c9
-SHA1: 4065a01eec6810f729fc953fab50712adda4fc3f
-MD5sum: 69baea19c346fd0c724a0880aee2cdae
+Filename: pool/main/n/nginx/nginx_1.30.8-1~buster_amd64.deb
+Size: 975676
+SHA256: 438b597e9ac07898303d3eb19444baf6d15dd4ddec22eec182806f063b9e6615
+SHA1: 5ab29523475bf5ee1f606037eea368e704ede694
+MD5sum: 09a6cc551eca0860a4fb48c36989a875
 Description: high performance web server
  nginx [engine x] is an HTTP and reverse proxy server, as well as
  a mail proxy server.
 
 Package: nginx-dbg
 Source: nginx
-Version: 1.30.7-1~buster
+Version: 1.30.8-1~buster
 Architecture: amd64
 Maintainer: NGINX Packaging <nginx-packaging@f5.com>
-Installed-Size: 7635
-Depends: nginx (= 1.30.7-1~buster)
+Installed-Size: 7636
+Depends: nginx (= 1.30.8-1~buster)
 Homepage: https://nginx.org
 Priority: optional
 Section: debug
-Filename: pool/main/n/nginx/nginx-dbg_1.30.7-1~buster_amd64.deb
-Size: 7240132
-SHA256: 6bb3c0a2740aed50b21f2f6c9109409ded5da30bd4570d3ef5d08b948d928824
-SHA1: 94cf5e47f71f61ec008eddf670356a7c09c04560
-MD5sum: 6572ee9692ba816352fdf9b8b235caa7
+Filename: pool/main/n/nginx/nginx-dbg_1.30.8-1~buster_amd64.deb
+Size: 7242340
+SHA256: d91828c0d8fc8204bb1830cc13a036c9f309209092a89655ae9b27cd8a7bf424
+SHA1: baf1862fcdd6d3f245bdd34f7951b319cde1f7e6
+MD5sum: 0861e58ed75fedeb9d99b15d71c1a197
 Description: nginx debug symbols
  This package contains the debugging symbols for nginx.
-Build-Ids: 7b07760b75ddb3201467d99015325a51976f3555 88e331ee5d3a099ac3d511635e16160dcc956650
+Build-Ids: 7146f3c0f30120f2ffa9821b5c6ff12ad3a716cb 83aaf3d9554c48e2987af6ddc73a860c66ca666f
 
