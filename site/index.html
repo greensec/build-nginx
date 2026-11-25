@@ -84,9 +84,10 @@ apt-get install nginx   # upgrades the nginx.org package in place</code></pre>
 
   <h3>Freexian Extended LTS (required)</h3>
   <p>
-    All supported suites are end-of-life - Debian ships no more security updates for them. Hosts
-    need <a href="https://www.freexian.com/lts/extended/">Freexian Extended LTS</a> for the
-    base-system libraries nginx links against (openssl, zlib, pcre):
+    All supported suites are end-of-life - Debian ships no more security updates for them. The
+    packages are built against <a href="https://www.freexian.com/lts/extended/">Freexian Extended
+    LTS</a> variants of the base-system libraries nginx links against (openssl, zlib, pcre), and
+    hosts need that repository anyway for base-system security fixes:
   </p>
 <pre><code>curl -fsSL https://deb.freexian.com/extended-lts/archive-key.gpg \
   -o /usr/share/keyrings/freexian-elts.gpg

@@ -11,7 +11,7 @@ RUN sed -i -e '/stretch-updates/d' \
         >>/etc/apt/sources.list \
  && apt-get update -qq && apt-get install -y --no-install-recommends \
     build-essential devscripts quilt dpkg-dev debhelper lsb-release \
-    libssl-dev libpcre2-dev zlib1g-dev \
+    libssl-dev libpcre2-dev zlib1g-dev apt-transport-https \
     git ca-certificates curl make xsltproc lintian libxml2-utils fakeroot \
  && apt-get install -y -t stretch-backports debhelper \
  && install -m0755 -d /etc/apt/keyrings \

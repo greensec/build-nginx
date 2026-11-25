@@ -59,7 +59,9 @@ afterwards; it carries no newer builds for these suites anyway.
 
 All supported suites are EOL. Base-system security fixes (openssl, zlib,
 pcre...) only come via Freexian Extended LTS - `add-repository.sh`
-installs it automatically. Hosts must have `stretch-lts`/`buster-lts`/
+installs it automatically. The build itself also resolves its external
+dependencies from `${DIST}-lts`, so the packages are linked against the
+patched library variants. Hosts must have `stretch-lts`/`buster-lts`/
 `bullseye-lts` enabled.
 
 ## Build

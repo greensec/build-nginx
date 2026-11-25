@@ -52,6 +52,31 @@ EOF
 esac
 
 apt-get update -qq
+# bootstrap for the ELTS key fetch below (https); stretch's apt 1.4 still
+# needs the external https transport
+apt-get install -y --no-install-recommends ca-certificates curl
+if [ "$DIST" = stretch ]; then
+    apt-get install -y --no-install-recommends apt-transport-https
+fi
+
+# Freexian Extended LTS carries the only remaining security updates for these
+# EOL dists - build against its patched library variants (openssl, zlib,
+# pcre) so the runtime deps match what ELTS-configured hosts have. The
+# ${DIST}-lts suites are partial; the archive lines above still provide the
+# base. jessie is excluded - add-repository.sh gives its hosts no ELTS repo,
+# so ELTS-versioned deps would be unsatisfiable there.
+case "$DIST" in
+    stretch|buster|bullseye)
+        install -m0755 -d /etc/apt/keyrings
+        curl -fsSL https://deb.freexian.com/extended-lts/archive-key.gpg \
+            -o /etc/apt/keyrings/freexian-elts.gpg
+        cat >/etc/apt/sources.list.d/freexian-elts.list <<EOF
+deb [signed-by=/etc/apt/keyrings/freexian-elts.gpg] https://deb.freexian.com/extended-lts ${DIST}-lts main contrib non-free
+EOF
+        ;;
+esac
+apt-get update -qq
+
 # jessie has no libpcre2-dev - nginx configure falls back to PCRE1
 pcredev=libpcre2-dev
 [ "$DIST" = jessie ] && pcredev=libpcre3-dev
