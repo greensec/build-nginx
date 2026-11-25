@@ -2,35 +2,190 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>greensec build-nginx</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>build-nginx - nginx packages for EOL Debian suites</title>
 <style>
-body { font-family: system-ui, sans-serif; max-width: 60em; margin: 2em auto; padding: 0 1em; color: #222; }
-code, pre { background: #f4f4f4; padding: .2em .4em; border-radius: 3px; }
-pre { padding: 1em; overflow-x: auto; }
-table { border-collapse: collapse; }
-td, th { border: 1px solid #ccc; padding: .35em .7em; text-align: left; }
+  :root {
+    --bg: #0d1117; --fg: #e6edf3; --mut: #8b949e; --acc: #58a6ff;
+    --card: #161b22; --border: #30363d; --code: #0a0d12;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+  h1 { font-size: 1.9rem; margin: 0 0 .25rem; }
+  h2 { font-size: 1.25rem; margin: 2.25rem 0 .75rem; border-bottom: 1px solid var(--border); padding-bottom: .35rem; }
+  .tag { color: var(--mut); font-size: 1.05rem; margin-top: 0; }
+  a { color: var(--acc); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+  pre {
+    background: var(--code); border: 1px solid var(--border); border-radius: 6px;
+    padding: .9rem 1rem; overflow-x: auto; font-size: .85rem; line-height: 1.5;
+  }
+  code { background: var(--code); border-radius: 4px; padding: .1em .35em; font-size: .88em; }
+  pre code { background: none; padding: 0; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    padding: 1rem 1.25rem; margin: .9rem 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+  th, td { text-align: left; padding: .45rem .6rem; border-bottom: 1px solid var(--border); }
+  th { color: var(--mut); font-weight: 600; font-size: .82rem; text-transform: uppercase; letter-spacing: .04em; }
+  td code { font-size: .85em; }
+  .warn { border-left: 3px solid #d29922; }
+  .note { border-left: 3px solid var(--acc); }
+  .muted { color: var(--mut); }
+  footer { margin-top: 3rem; color: var(--mut); font-size: .85rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+  #vstatus { color: var(--mut); font-size: .9rem; }
 </style>
 </head>
 <body>
-<h1>greensec build-nginx</h1>
-<p>nginx packages for Debian suites the official nginx.org repo dropped:
-<strong>stretch</strong>, <strong>buster</strong>, <strong>bullseye</strong> (amd64).
-Built with upstream <a href="https://github.com/nginx/pkg-oss">pkg-oss</a>
-packaging - drop-in replacements for the nginx.org <code>nginx</code> package.</p>
+<main>
+  <h1>build-nginx</h1>
+  <p class="tag">Debian packages of nginx for suites the official <a href="https://nginx.org/packages/debian/">nginx.org repository</a> dropped.</p>
 
-<h2>Install</h2>
-<pre>wget -qO- https://greensec.github.io/build-nginx/add-repository.sh | sh
-apt-get install nginx</pre>
+  <h2>What is this?</h2>
+  <p>
+    nginx.org stopped publishing packages for end-of-life Debian releases - bullseye tops out at
+    1.30.5 while current stable is 1.30.x. This repository rebuilds the newest upstream stable
+    release with nginx's own <a href="https://github.com/nginx/pkg-oss">pkg-oss</a> packaging inside
+    clean containers of the target suite, and publishes the result as a signed APT repository on
+    GitHub Pages.
+  </p>
+  <p>
+    The packages are drop-in replacements for the nginx.org build: same <code>nginx</code> package
+    name, same version scheme (<code>&lt;ver&gt;-&lt;pkgrel&gt;~&lt;dist&gt;</code>),
+    <code>Conflicts:</code>/<code>Replaces:</code> the Debian flavour packages. Where a host can use
+    <strong>Debian's own nginx</strong> + <a href="https://www.freexian.com/lts/extended/">Freexian
+    Extended LTS</a> instead, prefer that - ELTS backports the same fixes to the distro version.
+  </p>
+  <p>
+    Source and build pipeline: <a href="https://github.com/greensec/build-nginx">github.com/greensec/build-nginx</a>.
+  </p>
 
-<p><strong>Freexian ELTS is required</strong> on these EOL dists - the
-script installs it automatically.</p>
+  <h2>Installation</h2>
+  <p>Import the signing key and add the repository (replace <code>&lt;dist&gt;</code> with <code>jessie</code>, <code>stretch</code>, <code>buster</code> or <code>bullseye</code>):</p>
+<pre><code>curl -fsSL https://greensec.github.io/build-nginx/public.key \
+  | gpg --dearmor -o /etc/apt/keyrings/build-nginx.gpg
 
-<h2>Details</h2>
-<ul>
-<li>Apt repo: <code>https://greensec.github.io/build-nginx/repo</code></li>
-<li>Signing key: <a href="public.key">public.key</a></li>
-<li>Source + build pipeline: <a href="https://github.com/greensec/build-nginx">github.com/greensec/build-nginx</a></li>
-<li>Version history: VERSIONS.md in the repo</li>
-</ul>
+echo "deb [signed-by=/etc/apt/keyrings/build-nginx.gpg] \
+https://greensec.github.io/build-nginx/repo &lt;dist&gt; main" \
+  &gt; /etc/apt/sources.list.d/build-nginx.list
+
+apt-get update
+apt-get install nginx   # upgrades the nginx.org package in place</code></pre>
+  <p class="muted">
+    Equivalent helper: <a href="https://github.com/greensec/build-nginx/blob/main/add-repository.sh">add-repository.sh</a>
+    (stretch, buster, bullseye - also sets up the Freexian ELTS repo below).
+  </p>
+
+  <h3>Freexian Extended LTS (required)</h3>
+  <p>
+    All supported suites are end-of-life - Debian ships no more security updates for them. Hosts
+    need <a href="https://www.freexian.com/lts/extended/">Freexian Extended LTS</a> for the
+    base-system libraries nginx links against (openssl, zlib, pcre):
+  </p>
+<pre><code>curl -fsSL https://deb.freexian.com/extended-lts/archive-key.gpg \
+  -o /usr/share/keyrings/freexian-elts.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/freexian-elts.gpg] \
+https://deb.freexian.com/extended-lts &lt;dist&gt;-lts main contrib non-free" \
+  &gt; /etc/apt/sources.list.d/freexian-elts.list
+
+apt-get update</code></pre>
+  <p class="muted">
+    The <code>&lt;dist&gt;-lts</code> suites carry only Freexian's security updates - they supplement,
+    not replace, the archive.debian.org sources.
+  </p>
+
+  <h2>Currently published</h2>
+  <p id="vstatus">Loading package index...</p>
+  <div id="versions"></div>
+  <p class="muted">
+    Build dates and per-suite notes: <a href="https://github.com/greensec/build-nginx/blob/main/VERSIONS.md">VERSIONS.md</a>.
+  </p>
+
+  <h2>Details</h2>
+  <div class="card">
+    <ul>
+      <li><strong>Architecture:</strong> amd64 only.</li>
+      <li><strong>Suites:</strong> jessie, stretch, buster, bullseye; each needs archive.debian.org + Freexian ELTS + this repo to install.</li>
+      <li><strong>Version scheme:</strong> <code>&lt;upstream&gt;-&lt;pkgrel&gt;~&lt;dist&gt;</code>, e.g. <code>1.30.8-1~bullseye</code> - identical to the nginx.org scheme, so the packages upgrade cleanly over stale nginx.org installs.</li>
+      <li><strong>Signing:</strong> dedicated GPG key, <a href="public.key">public.key</a>; <code>InRelease</code> is signed.</li>
+      <li><strong>Packaging source:</strong> unmodified upstream <a href="https://github.com/nginx/pkg-oss">pkg-oss</a> <code>debian/</code> tree, minus what the EOL toolchains cannot do (debhelper compat is dropped to the distro level; jessie declares PCRE1).</li>
+      <li><strong>Builds:</strong> GitHub Actions matrix builds, one per suite; a daily cron compares against nginx.org and dispatches a rebuild + publish automatically when upstream cuts a new release.</li>
+      <li><strong>No HTTP/3 (QUIC):</strong> needs OpenSSL 3.x; these dists ship 1.0.x/1.1.x. nginx.org's own builds for these suites never had it either.</li>
+      <li><strong>TLS 1.3:</strong> only on buster and bullseye (OpenSSL 1.1.1); stretch (1.1.0) and jessie (1.0.1) are limited to TLS 1.2.</li>
+      <li><strong>Init:</strong> jessie ships the sysvinit script only (debhelper 9 predates <code>dh_installsystemd</code>); stretch and newer get a systemd unit.</li>
+    </ul>
+  </div>
+
+  <div class="card warn">
+    <strong>Not affiliated.</strong> Unofficial rebuilds - not provided by NGINX/F5, the Debian
+    maintainers, or Debian security. If a dist-upgrade path exists for your hosts, prefer it; this
+    repo is a bridge for systems that must stay on an EOL suite.
+  </div>
+
+  <div class="card note">
+    <strong>Mixing with Debian nginx.</strong> These packages supersede both the stale nginx.org
+    builds (higher version) and the distro <code>nginx-*</code> flavour packages
+    (<code>Conflicts:</code>/<code>Replaces:</code>), so they replace either cleanly. The nginx.org
+    list file can be removed or pinned away afterwards - it carries no newer builds for these
+    suites anyway.
+  </div>
+
+  <footer>
+    Generated page for <a href="https://github.com/greensec/build-nginx">greensec/build-nginx</a> -
+    served from the <code>gh-pages</code> branch, synced from <code>site/</code> on main.
+  </footer>
+</main>
+
+<script>
+(async function () {
+  var DISTS = ["jessie", "stretch", "buster", "bullseye"];
+  var status = document.getElementById("vstatus");
+  var root = document.getElementById("versions");
+  var rows = [];
+
+  for (var i = 0; i < DISTS.length; i++) {
+    var d = DISTS[i];
+    var url = "repo/dists/" + d + "/main/binary-amd64/Packages";
+    try {
+      var r = await fetch(url);
+      if (!r.ok) continue;
+      var text = await r.text();
+      var version = "";
+      var pkgs = [];
+      text.split(/\n\n/).forEach(function (st) {
+        var pkg = /^Package: (.+)$/m.exec(st);
+        var ver = /^Version: (.+)$/m.exec(st);
+        if (!pkg || !ver) return;
+        pkgs.push(pkg[1]);
+        if (pkg[1] === "nginx") version = ver[1];
+      });
+      rows.push({ dist: d, version: version || "-", pkgs: pkgs });
+    } catch (e) { /* index not published yet */ }
+  }
+
+  if (!rows.length) {
+    status.textContent = "No package index reachable - the repository may not be published yet.";
+    return;
+  }
+  status.textContent = "";
+
+  var t = document.createElement("table");
+  t.innerHTML = "<tr><th>suite</th><th>version</th><th>binary packages</th></tr>";
+  rows.forEach(function (f) {
+    var tr = document.createElement("tr");
+    tr.innerHTML = "<td>debian " + f.dist + "</td><td><code>" + f.version +
+      "</code></td><td>" + f.pkgs.join(", ") + "</td>";
+    t.appendChild(tr);
+  });
+  root.appendChild(t);
+})();
+</script>
 </body>
 </html>
