@@ -11,8 +11,66 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # gh run list/view for dedup + gh workflow run to dispatch the build
+      actions: write
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+
       - name: Compare nginx.org release vs published repo
-        run: ./scripts/check-upstream.sh
+        id: check
+        run: |
+          ./scripts/check-upstream.sh || echo "rc=$?" >>"$GITHUB_OUTPUT"
+
+      - name: Dispatch build for new upstream release
+        id: trigger
+        if: steps.check.outputs.behind == 'true'
+        env:
+          LATEST: ${{ steps.check.outputs.latest }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # pkg-oss tags usually lag the nginx.org release by a day or two;
+          # without a matching tag there is nothing to build yet
+          tag=$(gh api "repos/nginx/pkg-oss/tags?per_page=100" -q '.[].name' \
+              | { grep -xE "$(echo "$LATEST" | sed 's/\./\\./g')-[0-9]+" || true; } \
+              | sort -V | tail -1)
+          if [ -z "$tag" ]; then
+              echo "::notice::nginx $LATEST is out but has no pkg-oss tag yet - retrying tomorrow"
+              echo "pending=true" >>"$GITHUB_OUTPUT"
+              exit 0
+          fi
+          echo "pkg-oss tag: $tag"
+
+          # fire once per tag: if a build for it was already triggered but
+          # the repo is still behind, that build failed or did not publish
+          # - flag the run instead of dispatching again
+          for run in $(gh run list --workflow=build-nginx.yml --limit 15 \
+              --json databaseId -q '.[].databaseId'); do
+              if gh run view "$run" --json jobs -q '.jobs[].name' \
+                  | grep -qF "nginx $tag for "; then
+                  echo "::error::build for $tag already triggered (run $run) but the repo is still behind - check that run"
+                  echo "dup=true" >>"$GITHUB_OUTPUT"
+                  exit 0
+              fi
+          done
+
+          gh workflow run build-nginx.yml -f dist=all -f nginx_tag="$tag" -f release=true
+          echo "dispatched=true" >>"$GITHUB_OUTPUT"
+          echo "dispatched build-nginx.yml: nginx_tag=$tag dist=all release=true"
+
+      # Failing the run is the notification channel: upstream fetch broke,
+      # the script itself errored, or the repo is behind and no build is
+      # pending or was just dispatched (a previous one did not land).
+      - name: Flag run as failed - needs attention
+        if: >
+          steps.check.outputs.error == 'true' ||
+          (steps.check.outputs.rc != '0' &&
+           steps.check.outputs.rc != '1' &&
+           steps.check.outputs.rc != '') ||
+          (steps.check.outputs.behind == 'true' &&
+           steps.trigger.outputs.dispatched != 'true' &&
+           steps.trigger.outputs.pending != 'true')
+        run: exit 1

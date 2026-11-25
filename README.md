@@ -33,6 +33,12 @@ stretch where ELTS carries no nginx security fixes at all).
 - `docker/Dockerfile.<dist>` - local build environment per suite
 - `.github/workflows/build-nginx.yml` - matrix build + publish to the
   `gh-pages` apt repo via `smeinecke/apt-repo-action`
+- `scripts/check-upstream.sh` + `.github/workflows/check-upstream.yml` -
+  daily cron comparing the newest nginx.org release against the published
+  repo; when a suite is behind it resolves the matching pkg-oss tag and
+  dispatches `build-nginx.yml` (`dist=all`, `release=true`). It fires once
+  per tag - the run fails (notification) when a fetch breaks or a build
+  was already triggered but the repo is still behind
 - `add-repository.sh` - host-side repo setup (also installs Freexian
   ELTS - **required** on these EOL dists for base-system fixes)
 
