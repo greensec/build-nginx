@@ -3,7 +3,7 @@ Hash: SHA512
 
 Suite: buster
 Codename: buster
-Date: Wed, 25 Nov 2026 15:35:53 UTC
+Date: Wed, 25 Nov 2026 15:38:13 UTC
 Architectures: amd64
 Components: main
 Description: greensec/build-nginx
@@ -21,17 +21,17 @@ SHA256:
  c163819459f701e59227b2e6a26da5e0c5788aff8e316607170accce78e23ff0 86 main/binary-amd64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEkT0jNCRZ7tNCqnwGtvyJvL3UkzYFAmsHAFkACgkQtvyJvL3U
-kzYgsA//dYSUAEIaGqbzLZPaGBIGjfwIl+S66XrvkVVgfvucxPw+/Fjmv0Cm1fA0
-uciAKUznWdzRXF3kMnTLZIO5sQ1eB4mQmlSTXhMfqo/vRXHiog8oq09w7+7ZW5wh
-3v+ZOfm7L4X3gE5Bti7c1c5t3RNi+ZfDWfgGGVr8yOcc+AxSYFEFRcgaBIxFfvGu
-6X7wJLrZ8YaSHsGca1wnMJ0ldU6nJKJqmbkbdWlixtIje4D2Z5PMh5JGcMKhir4S
-tT5ojVciqMdIqSORoZ+5M1UdxWjiDaD2hjbZq4vKRpFzarTQUIsFOYU4wj9r+F08
-qX72zbxRGufZyfpiL3XOVYo6TA2pQTTI3v1huY3DhYfkwCyD4ePzr0ePvEpwrIV6
-/FtvXpfQnc7xYmINxKOdqVLOOYPgFuOrb9eCFGxUKhfei5PdcLot8nBHAVWkCE6A
-AVb9p49Ha5v1/qDjkAEuLmyMzhkdwk0VVp1yl92JPf/FsBOU8tjd/s2jWNN7to4a
-7SEeQfmLrCcuaMKEUCDKYEvuuMb/l44m1Cjl8ou1GMXIAbWQp5JuFjJ60raywlrJ
-l9RimBt2FA8x/0dppP0TBB6drao5RdBuuotHAUWDqE7W1tvq381xrgGS0R5gEHru
-phOMoVGAQNQZIQic8bY34hljtOqQ9TNfAJpcmqUpo7YKX1YVgQ8=
-=C7q2
+iQIzBAEBCgAdFiEEkT0jNCRZ7tNCqnwGtvyJvL3UkzYFAmsHAOUACgkQtvyJvL3U
+kzZ85g/+I3JB/qUdfXS6wQ2aUi+EPQAq1xNuaRyCncld56m4LUvljJG+7TTWsoVY
+2awz3uIYv/RMQs81ruDQqGUxkxE/2Of5n0inRfSLavYMDkqWS+yyC+kqVZ1t6CdG
+htwDBjvnii4Z8RqdJ6Mwhg2/6yhdogb8wMnZiLgUecH0xJc3h0K5r96SnSCAzpek
+UM+m09288WgbamPqprTNHw0mIUxQfWiqDndIahmtLmcCdaNMo0qdJm/+JFPaOTMJ
+8k4GRG1MOqagT5IEtc+otKo6ijr+Hd9PkIWaIrNUiqA9GSmTNuxzPDzNI7TukArD
+T7KycUQXWZoLSamb289pkHjtwPMEPfZ3ktQHmsFilvD/5y3/nzdtt+hCUzmSeQSx
+VC5GwmzmOUQC0D3LNWhpLAZXReHsHaxsprMaYbspSQ2ouYmC6qAIOs+50hjCE2Ro
+2XBGDkyf4F35x+J0oMASC3NNcaf/KbAGFpwgRF1TArBtn3oJa2jXfWwl7RIDP6No
+Y4Xo+d/am2GVg1ASDbFj9zf6jiCmbd2tOjQyQIttV8f29ylfVtRCLvxZRKfXs35e
+West2Yio7SDUlZMA8DwCzatWegPafQXc8ghYcNLXEyZvw3F21ql7y1THDETmuQ/c
+ZwViwV/DmIoI8XldBefJvVk/v4MkM2hYiIfpLwD0DmBLxWp5RlU=
+=rrUD
 -----END PGP SIGNATURE-----

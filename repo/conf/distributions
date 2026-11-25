@@ -1,9 +1,3 @@
-Description: greensec/build-nginx
-Codename: jessie
-Architectures: amd64
-Components: main
-SignWith: 913D23342459EED342AA7C06B6FC89BCBDD49336
-
 Codename: stretch
 Suite: stretch
 Components: main
@@ -12,6 +6,12 @@ SignWith: 913D23342459EED342AA7C06B6FC89BCBDD49336
 DebOverride: override.stretch
 DscOverride: override.stretch
 Description: greensec/build-nginx
+
+Description: greensec/build-nginx
+Codename: jessie
+Architectures: amd64
+Components: main
+SignWith: 913D23342459EED342AA7C06B6FC89BCBDD49336
 
 Codename: bullseye
 Suite: bullseye

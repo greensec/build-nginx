@@ -1,5 +1,5 @@
 Package: nginx
-Version: 1.30.7-1~stretch
+Version: 1.30.8-1~stretch
 Architecture: amd64
 Maintainer: NGINX Packaging <nginx-packaging@f5.com>
 Installed-Size: 3309
@@ -7,35 +7,35 @@ Depends: libc6 (>= 2.17), libpcre2-8-0, libssl1.1 (>= 1.1.0), zlib1g (>= 1:1.1.4
 Recommends: logrotate
 Conflicts: nginx-common, nginx-core
 Replaces: nginx-common, nginx-core
-Provides: httpd, nginx, nginx-r1.30.7
+Provides: httpd, nginx, nginx-r1.30.8
 Homepage: https://nginx.org
 Priority: optional
 Section: httpd
-Filename: pool/main/n/nginx/nginx_1.30.7-1~stretch_amd64.deb
-Size: 962154
-SHA256: 4796e2dbc50d3ca9375c8e7218e0258acb52764568823e74453f027878de9643
-SHA1: 7f72aac472fc6a6232e67b957f682cb0c5d8b9cd
-MD5sum: 2991814ede248284a5d980399b6554e8
+Filename: pool/main/n/nginx/nginx_1.30.8-1~stretch_amd64.deb
+Size: 962642
+SHA256: daf9862af380d185782b0fb40a9e59d490d514f88e0aa08964b025d8c4c3350e
+SHA1: 7ff0f659ffa3811b01cd3c0596a01e64c9abb166
+MD5sum: e34ec8358c8f7f727b13a3bae1ed6fe7
 Description: high performance web server
  nginx [engine x] is an HTTP and reverse proxy server, as well as
  a mail proxy server.
 
 Package: nginx-dbg
 Source: nginx
-Version: 1.30.7-1~stretch
+Version: 1.30.8-1~stretch
 Architecture: amd64
 Maintainer: NGINX Packaging <nginx-packaging@f5.com>
-Installed-Size: 6656
-Depends: nginx (= 1.30.7-1~stretch)
+Installed-Size: 6657
+Depends: nginx (= 1.30.8-1~stretch)
 Homepage: https://nginx.org
 Priority: optional
 Section: debug
-Filename: pool/main/n/nginx/nginx-dbg_1.30.7-1~stretch_amd64.deb
-Size: 6259214
-SHA256: b375acd8bfa536d3e62bd4d7b4a5554826bd7d7071722d0f8a86013c3732a4a3
-SHA1: 46f2c63157ee0edf4cabec4a601591643185b67a
-MD5sum: 71624061ed6270a85564753622ea3826
+Filename: pool/main/n/nginx/nginx-dbg_1.30.8-1~stretch_amd64.deb
+Size: 6256710
+SHA256: 4a585842bb10100a8e8759208800b22144a383aad0e791477814bcc7a46733fb
+SHA1: f16375e01621a1b79b81df8f813f1deb3dab4e38
+MD5sum: 4e450cc48eb4fbb0215c54e43e8453e2
 Description: nginx debug symbols
  This package contains the debugging symbols for nginx.
-Build-Ids: 4ed7717659e1fb3653ba142b280fbe7da00e4da1 b431fa81b5aeeaf79adb422ff2e4e2024860701f
+Build-Ids: 9238f90de56e89b3e94bedb23068f71cd0e996df c737cc976c6ab0b30dd57836369d466b18dd47d5
 
